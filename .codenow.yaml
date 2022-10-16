@@ -1,0 +1,24 @@
+build:
+  pipelines:
+    triggers:
+      - pipeline: java-maven-app-preview
+        enabled: true
+        branch: feature/x
+        deployment:
+          enabled: false
+    preview:
+      pipeline: java-maven-app-preview
+    release:
+      pipeline: java-maven-app-release
+  image: maven:3.8.6-openjdk-11
+  environmentVariables: []
+advancedMode:
+  enabled: false
+runtime:
+  image: openjdk:11.0.3-jre-slim-stretch
+  port: "80"
+  endpoints:
+    external:
+      enabled: true
+  java:
+    jvmParameters: -Xmx128m -Xms128m -XX:MaxMetaspaceSize=128m
