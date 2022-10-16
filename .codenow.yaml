@@ -13,7 +13,7 @@ build:
   image: maven:3.8.6-openjdk-11
   environmentVariables: []
 advancedMode:
-  enabled: true
+  enabled: false
 runtime:
   image: openjdk:11.0.3-jre-slim-stretch
   port: "80"
